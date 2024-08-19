@@ -49,8 +49,8 @@ def parse_configuration() -> yaml:
     return config
 
 
-def get_accounts(config: yaml, args: ArgumentParser) -> list[str]:
-    accounts: tuple[str, str, bool] = []
+def get_accounts(config: yaml, args: Namespace) -> list[str]:
+    accounts: list[tuple[str, str, bool]] = []
     max_label_length = 0
     for key, value in config.get("accounts").items():
         filename = value.get("filename", key)
